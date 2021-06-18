@@ -1,12 +1,13 @@
 import React from "react";
+import { hot } from "react-hot-loader";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello, World!</h1>
+      <h1>Hello, Mars!</h1>
     </div>
   );
 };
 
-export default App;
+export default hot(module)(App);

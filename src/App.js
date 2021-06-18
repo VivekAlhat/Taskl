@@ -1,13 +1,14 @@
+import { hot } from "react-hot-loader/root";
 import React from "react";
-import { hot } from "react-hot-loader";
+import TaskList from "./components/TaskList";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello, Mars!</h1>
+      <TaskList />
     </div>
   );
 };
 
-export default hot(module)(App);
+export default hot(App);

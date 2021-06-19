@@ -1,0 +1,29 @@
+.task-item {
+  margin: 1rem 0;
+  padding: 1rem 3rem;
+}
+
+.buttons-container {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.cmplt-btn,
+.remove-btn {
+  border: none;
+  outline: none;
+  width: 10rem;
+  margin-right: 1rem;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.cmplt-btn {
+  background: #008000;
+}
+
+.remove-btn {
+  background: #f08800;
+}

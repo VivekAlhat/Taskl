@@ -3,7 +3,12 @@ import TaskListItem from "./TaskListItem";
 import AddTask from "./AddTask";
 import "./css/tasklist.css";
 
-const TaskList = ({ tasks = [] }) => {
+const TaskList = ({
+  tasks = [
+    { data: "Create Webpack Boilerplate" },
+    { data: "Learn About Polybar Modules" },
+  ],
+}) => {
   return (
     <div className="task-list-wrapper">
       <AddTask />

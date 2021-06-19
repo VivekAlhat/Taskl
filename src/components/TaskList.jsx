@@ -5,8 +5,8 @@ import "./css/tasklist.css";
 
 const TaskList = ({
   tasks = [
-    { data: "Create Webpack Boilerplate" },
-    { data: "Learn About Polybar Modules" },
+    { text: "Create Webpack Boilerplate" },
+    { text: "Learn About Polybar Modules" },
   ],
 }) => {
   return (

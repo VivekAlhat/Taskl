@@ -4,7 +4,7 @@ import "./css/task.css";
 const TaskListItem = ({ task }) => {
   return (
     <div className="task-item">
-      <h3>{task.data}</h3>
+      <h3>{task.text}</h3>
       <div className="buttons-container">
         <button className="cmplt-btn">Mark as completed</button>
         <button className="remove-btn">Remove</button>

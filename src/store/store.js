@@ -1,9 +1,8 @@
 import { createStore, combineReducers } from "redux";
+import { tasksReducer } from "./reducers";
 
-const reducers = {};
+const reducers = { tasksReducer };
 
 const rootReducer = combineReducers(reducers);
 
-export const configureStore = () => {
-  createStore(rootReducer);
-};
+export const store = createStore(rootReducer);

@@ -1,6 +1,6 @@
 import { CREATE_TASK, REMOVE_TASK } from "./actions";
 
-const initialState = { tasks: [{ text: "hello", isCompleted: false }] };
+const initialState = { tasks: [] };
 
 const tasksReducer = (state = initialState, action) => {
   const { type, payload } = action;

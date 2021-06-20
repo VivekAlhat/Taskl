@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { removeTask, markCompleted } from "../store/actions";
+import { loadTasks } from "../store/thunks";
 import TaskListItem from "./TaskListItem";
 import AddTask from "./AddTask";
 import "./css/tasklist.css";
 
-const TaskList = ({ tasks, onRemovePressed, onCompletePressed }) => {
-  return (
+const TaskList = ({
+  tasks,
+  onRemovePressed,
+  onCompletePressed,
+  isLoading,
+  startLoadingTasks,
+}) => {
+  useEffect(() => {
+    startLoadingTasks();
+  }, []);
+
+  const loadingMessage = (
+    <div style={{ display: "grid", placeItems: "center", height: "100vh" }}>
+      Loading data...
+    </div>
+  );
+  const tasksData = (
     <div className="task-list-wrapper">
       <AddTask />
       {tasks.map((task, key) => (
@@ -19,15 +35,18 @@ const TaskList = ({ tasks, onRemovePressed, onCompletePressed }) => {
       ))}
     </div>
   );
+  return isLoading ? loadingMessage : tasksData;
 };
 
 const mapStateToProps = (state) => ({
-  tasks: state.tasks,
+  tasks: state.tasksReducer.tasks,
+  isLoading: state.loadingReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onRemovePressed: (task) => dispatch(removeTask(task)),
   onCompletePressed: (task) => dispatch(markCompleted(task)),
+  startLoadingTasks: () => dispatch(loadTasks()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

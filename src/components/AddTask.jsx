@@ -36,7 +36,7 @@ const AddTask = ({ tasks, onCreatePressed }) => {
 };
 
 const mapStateToProps = (state) => ({
-  tasks: state.tasks,
+  tasks: state.tasksReducer.tasks,
 });
 
 const mapDispatchToProps = (dispatch) => ({

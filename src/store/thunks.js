@@ -7,7 +7,7 @@ import {
 export const loadTasks = () => async (dispatch, getState) => {
   try {
     dispatch(loadTasksInProgress());
-    const res = await fetch("http://localhost:8080/todos");
+    const res = await fetch("http://localhost:8080/todos-delay");
     const tasks = await res.json();
     dispatch(loadTasksSuccess(tasks));
   } catch (err) {

@@ -35,12 +35,12 @@ const AddTask = ({ tasks, onCreatePressed }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  tasks: state.tasks;
-};
+const mapStateToProps = (state) => ({
+  tasks: state.tasks,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  onCreatePressed: (task) => dispatch(createTask(task));
-};
+const mapDispatchToProps = (dispatch) => ({
+  onCreatePressed: (task) => dispatch(createTask(task)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTask);

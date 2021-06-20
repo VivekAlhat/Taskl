@@ -1,22 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
+import { removeTask } from "../store/actions";
 import TaskListItem from "./TaskListItem";
 import AddTask from "./AddTask";
 import "./css/tasklist.css";
 
-const TaskList = ({
-  tasks = [
-    { text: "Create Webpack Boilerplate" },
-    { text: "Learn About Polybar Modules" },
-  ],
-}) => {
+const TaskList = ({ tasks = [], onRemovePressed }) => {
   return (
     <div className="task-list-wrapper">
       <AddTask />
       {tasks.map((task, key) => (
-        <TaskListItem key={key} task={task} />
+        <TaskListItem key={key} task={task} onRemovePressed={onRemovePressed} />
       ))}
     </div>
   );
 };
 
-export default TaskList;
+const mapStateToProps = (state) => ({
+  tasks: state.tasks,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onRemovePressed: (task) => dispatch(removeTask(task)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

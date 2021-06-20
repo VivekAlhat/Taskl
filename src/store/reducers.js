@@ -1,4 +1,4 @@
-import { CREATE_TASK, REMOVE_TASK } from "./actions";
+import { CREATE_TASK, REMOVE_TASK, MARK_COMPLETED } from "./actions";
 
 const initialState = { tasks: [] };
 
@@ -16,6 +16,21 @@ const tasksReducer = (state = initialState, action) => {
       const { task } = payload;
       return {
         tasks: state.tasks.filter((item) => item.text !== task),
+      };
+    }
+    case MARK_COMPLETED: {
+      const { task } = payload;
+      const newTasks = state.tasks.map((item) => {
+        if (item.text === task) {
+          return {
+            ...item,
+            isCompleted: !item.isCompleted,
+          };
+        }
+        return item;
+      });
+      return {
+        tasks: newTasks,
       };
     }
     default: {

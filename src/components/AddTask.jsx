@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { getTasks } from "../store/selectors";
 import { addTask } from "../store/thunks";
 import "./css/addtask.css";
 
@@ -36,7 +37,7 @@ const AddTask = ({ tasks, onCreatePressed }) => {
 };
 
 const mapStateToProps = (state) => ({
-  tasks: state.tasksReducer.tasks,
+  tasks: getTasks(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

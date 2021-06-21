@@ -7,7 +7,7 @@ const TaskListItem = ({ task, onRemovePressed, onCompletePressed }) => {
   };
 
   const handleComplete = (e) => {
-    onCompletePressed(task.text);
+    onCompletePressed(task.id);
   };
 
   return (

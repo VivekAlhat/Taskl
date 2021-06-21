@@ -30,15 +30,14 @@ const tasksReducer = (state = initialState, action) => {
   switch (type) {
     case CREATE_TASK: {
       const { task } = payload;
-      const newTask = { text: task, isCompleted: false };
       return {
-        tasks: [...state.tasks, newTask],
+        tasks: [...state.tasks, task],
       };
     }
     case REMOVE_TASK: {
-      const { task } = payload;
+      const { task: taskToRemove } = payload;
       return {
-        tasks: state.tasks.filter((item) => item.text !== task),
+        tasks: state.tasks.filter((item) => item.id !== taskToRemove.id),
       };
     }
     case MARK_COMPLETED: {

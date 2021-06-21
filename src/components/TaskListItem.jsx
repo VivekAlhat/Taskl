@@ -3,7 +3,7 @@ import "./css/task.css";
 
 const TaskListItem = ({ task, onRemovePressed, onCompletePressed }) => {
   const handleRemove = (e) => {
-    onRemovePressed(task.text);
+    onRemovePressed(task.id);
   };
 
   const handleComplete = (e) => {

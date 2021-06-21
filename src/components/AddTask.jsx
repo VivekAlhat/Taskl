@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { createTask } from "../store/actions";
+import { addTask } from "../store/thunks";
 import "./css/addtask.css";
 
 const AddTask = ({ tasks, onCreatePressed }) => {
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreatePressed: (task) => dispatch(createTask(task)),
+  onCreatePressed: (task) => dispatch(addTask(task)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTask);

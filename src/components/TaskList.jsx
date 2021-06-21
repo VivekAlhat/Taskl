@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { removeTask, markCompleted } from "../store/actions";
-import { loadTasks } from "../store/thunks";
+import { markCompleted } from "../store/actions";
+import { loadTasks, deleteTask } from "../store/thunks";
 import TaskListItem from "./TaskListItem";
 import AddTask from "./AddTask";
 import "./css/tasklist.css";
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onRemovePressed: (task) => dispatch(removeTask(task)),
+  onRemovePressed: (id) => dispatch(deleteTask(id)),
   onCompletePressed: (task) => dispatch(markCompleted(task)),
   startLoadingTasks: () => dispatch(loadTasks()),
 });

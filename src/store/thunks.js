@@ -4,6 +4,7 @@ import {
   loadTasksFailure,
   createTask,
   removeTask,
+  markCompleted,
 } from "./actions";
 
 export const loadTasks = () => async (dispatch, getState) => {
@@ -42,6 +43,18 @@ export const deleteTask = (id) => async (dispatch, getState) => {
     });
     const item = await res.json();
     dispatch(removeTask(item));
+  } catch (err) {
+    dispatch(displayAlert(err));
+  }
+};
+
+export const markCompleteTask = (id) => async (dispatch, getState) => {
+  try {
+    const res = await fetch(`http://localhost:8080/todos/${id}/completed`, {
+      method: "post",
+    });
+    const item = await res.json();
+    dispatch(markCompleted(item));
   } catch (err) {
     dispatch(displayAlert(err));
   }

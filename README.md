@@ -5,4 +5,5 @@
 - React
 - Webpack 4
 - Babel 7
-- Redux, Redux-Persist
+- Redux, Redux-Persist, Redux-Thunk
+- Reselect

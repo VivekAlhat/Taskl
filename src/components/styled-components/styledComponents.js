@@ -33,7 +33,7 @@ export const TaskListWrapper = styled.div`
 `;
 
 export const TaskTitle = styled.h3`
-  margin: "1rem 0";
+  margin: 1rem 0;
 `;
 
 export const LoadingContainer = styled.div`
@@ -44,7 +44,8 @@ export const LoadingContainer = styled.div`
 
 export const TaskItem = styled.div`
   margin: 1rem 0;
-  padding: 1rem 0;
+  padding: 1rem 3rem;
+  box-shadow: 3px 3px black;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -63,6 +64,25 @@ export const ActionButton = styled.button`
   color: #fff;
 `;
 
+export const CompleteButton = styled(ActionButton)`
+  background: green;
+`;
+
+export const RemoveButton = styled(ActionButton)`
+  background: red;
+`;
+
 export const AppContainer = styled.div`
   margin: 0 15rem;
+`;
+
+export const DateText = styled.p`
+  margin: 1rem 0;
+`;
+
+export const TaskItemWarning = styled(TaskItem)`
+  box-shadow: ${(props) =>
+    new Date(props.createdAt) > new Date(Date.now() - 8640000 * 5)
+      ? null
+      : "2px 2px red"};
 `;

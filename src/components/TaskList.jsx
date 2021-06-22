@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
-  getTasks,
   getLoading,
   getCompletedTasks,
   getIncompleteTasks,
 } from "../store/selectors";
 import { loadTasks, deleteTask, markCompleteTask } from "../store/thunks";
+import {
+  TaskListWrapper,
+  TaskTitle,
+  LoadingContainer,
+} from "./styled-components/styledComponents";
 import TaskListItem from "./TaskListItem";
 import AddTask from "./AddTask";
-import "./css/tasklist.css";
 
 const TaskList = ({
   completedTasks,
@@ -23,15 +26,11 @@ const TaskList = ({
     startLoadingTasks();
   }, []);
 
-  const loadingMessage = (
-    <div style={{ display: "grid", placeItems: "center", height: "100vh" }}>
-      Loading data...
-    </div>
-  );
+  const loadingMessage = <LoadingContainer>Loading data...</LoadingContainer>;
   const tasksData = (
-    <div className="task-list-wrapper">
+    <TaskListWrapper>
       <AddTask />
-      <h3 style={{ margin: "1rem 0" }}>Incomplete Tasks:</h3>
+      <TaskTitle>Incomplete Tasks:</TaskTitle>
       {incompleteTasks.map((task, key) => (
         <TaskListItem
           key={key}
@@ -41,7 +40,7 @@ const TaskList = ({
         />
       ))}
       <hr />
-      <h3 style={{ margin: "1rem 0" }}>Complete Tasks:</h3>
+      <TaskTitle>Complete Tasks:</TaskTitle>
       {completedTasks.map((task, key) => (
         <TaskListItem
           key={key}
@@ -50,7 +49,7 @@ const TaskList = ({
           onCompletePressed={onCompletePressed}
         />
       ))}
-    </div>
+    </TaskListWrapper>
   );
   return isLoading ? loadingMessage : tasksData;
 };

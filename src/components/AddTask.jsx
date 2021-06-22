@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../store/selectors";
 import { addTask } from "../store/thunks";
-import "./css/addtask.css";
+import {
+  AddTaskContainer,
+  TaskInput,
+  AddBtn,
+} from "./styled-components/styledComponents";
 
 const AddTask = ({ tasks, onCreatePressed }) => {
   const [task, setTask] = useState("");
@@ -20,19 +24,16 @@ const AddTask = ({ tasks, onCreatePressed }) => {
   };
 
   return (
-    <div className="add-task">
-      <input
-        className="task-input"
+    <AddTaskContainer>
+      <TaskInput
         type="text"
         value={task}
         onChange={handleChange}
         autoComplete="off"
         placeholder="What's on your mind?"
       />
-      <button className="add-btn" onClick={handleClick}>
-        Create Task
-      </button>
-    </div>
+      <AddBtn onClick={handleClick}>Create Task</AddBtn>
+    </AddTaskContainer>
   );
 };
 

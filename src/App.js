@@ -1,13 +1,13 @@
 import { hot } from "react-hot-loader/root";
 import React from "react";
 import TaskList from "./components/TaskList";
-import "./App.css";
+import { AppContainer } from "./components/styled-components/styledComponents";
 
 const App = () => {
   return (
-    <div className="App">
+    <AppContainer>
       <TaskList />
-    </div>
+    </AppContainer>
   );
 };
 

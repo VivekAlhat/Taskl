@@ -1,5 +1,9 @@
 import React from "react";
-import "./css/task.css";
+import {
+  TaskItem,
+  ButtonsContainer,
+  ActionButton,
+} from "./styled-components/styledComponents";
 
 const TaskListItem = ({ task, onRemovePressed, onCompletePressed }) => {
   const handleRemove = (e) => {
@@ -11,19 +15,17 @@ const TaskListItem = ({ task, onRemovePressed, onCompletePressed }) => {
   };
 
   return (
-    <div className="task-item">
+    <TaskItem>
       <h3>{task.text}</h3>
-      <div className="buttons-container">
+      <ButtonsContainer>
         {task.isCompleted ? null : (
-          <button className="cmplt-btn" onClick={handleComplete}>
+          <ActionButton onClick={handleComplete}>
             Mark as completed
-          </button>
+          </ActionButton>
         )}
-        <button className="remove-btn" onClick={handleRemove}>
-          Remove
-        </button>
-      </div>
-    </div>
+        <ActionButton onClick={handleRemove}>Remove</ActionButton>
+      </ButtonsContainer>
+    </TaskItem>
   );
 };
 

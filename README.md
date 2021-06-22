@@ -8,3 +8,4 @@
 - Redux, Redux-Persist, Redux-Thunk
 - Reselect
 - Styled Components
+- Mocha, Chai

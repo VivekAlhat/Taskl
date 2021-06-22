@@ -7,3 +7,4 @@
 - Babel 7
 - Redux, Redux-Persist, Redux-Thunk
 - Reselect
+- Styled Components

@@ -9,3 +9,4 @@
 - Reselect
 - Styled Components
 - Mocha, Chai
+- Sinon, Fetch-Mock, Node-Fetch
